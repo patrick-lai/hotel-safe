@@ -1,17 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from './Button';
 import './styles.css';
 
-// TODO - Use a font... like icomoon
-const _RIGHT_ARROW = '⇨';
-
 // Define our grid of buttons , a mix of numbers and actions
-const listOfButtons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'CLR', 0, _RIGHT_ARROW];
+const defaultButtons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'CLR', 0, '⇨'];
 
-const Button = ({ action }) => <button className="btn">{action}</button>;
-
-export default () => (
+const Numpad = ({ buttons = defaultButtons, onPress }) => (
   <div className="numpad">
-    {listOfButtons.map((action, i) => <Button action={action} key={i} />)}
+    {buttons.map((action, i) => (
+      <Button label={action} value={action} onPress={onPress} key={i} />
+    ))}
   </div>
 );
+
+Numpad.propTypes = {
+  buttons: PropTypes.array,
+  onPress: PropTypes.func
+};
+
+export default Numpad;
