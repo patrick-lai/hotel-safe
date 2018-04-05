@@ -20,7 +20,7 @@ const defaultState = {
 const log = (...args) => console.error(...args);
 
 export default (state = defaultState, action) => {
-  const { _savedPin, pin, locked, status } = state;
+  const { _savedPin, pin, locked } = state;
 
   switch (action.type) {
     case 'ENTER_DIGIT':

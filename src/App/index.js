@@ -6,7 +6,7 @@ import { dispatch } from '../store';
 import { connect } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 
-import styles from './styles.css';
+import './styles.css';
 
 // Dispatch action for when pressing key pad
 export const onPress = value => {
