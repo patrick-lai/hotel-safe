@@ -11,7 +11,7 @@ export default () => (
       <div>
         <Numpad />
       </div>
-      <div>
+      <div className="right">
         <Screen />
         <div className="indicator-container">
           <Indicator />

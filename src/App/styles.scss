@@ -7,16 +7,24 @@
   align-items: center;
   height: 100%;
   width: 100%;
+  min-height: 700px;
+  min-width: 800px;
 }
 
 .container {
   height: 50%;
   width: 100%;
   display: flex;
+  max-width: 1200px;
 
   & > * {
     flex: 1;
     padding: 2em;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
   }
 }
 
