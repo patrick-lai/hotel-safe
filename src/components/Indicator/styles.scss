@@ -1,0 +1,18 @@
+@import '../../theme/default.scss';
+
+.indicator {
+  background-color: $color-gray;
+  border: 6px solid black;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  transition: all 250ms ease;
+
+  &.-error {
+    background-color: $color-fail;
+  }
+
+  &.-success {
+    background-color: $color-success;
+  }
+}

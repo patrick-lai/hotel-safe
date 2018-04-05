@@ -1,6 +1,8 @@
 import React from 'react';
 import Numpad from '../components/Numpad';
 import Screen from '../components/Screen';
+import Indicator from '../components/Indicator';
+
 import styles from './styles.css';
 
 export default () => (
@@ -10,10 +12,10 @@ export default () => (
         <Numpad />
       </div>
       <div>
-        <span>
-          <Screen />
-        </span>
-        <span>indicator</span>
+        <Screen />
+        <div className="indicator-container">
+          <Indicator />
+        </div>
       </div>
     </div>
   </div>
