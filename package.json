@@ -15,8 +15,6 @@
   },
   "dependencies": {
     "lodash": "^4.17.5",
-    "node-sass-chokidar": "^1.2.2",
-    "npm-run-all": "^4.1.2",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-redux": "^5.0.7",
@@ -25,6 +23,8 @@
     "redux": "^3.7.2"
   },
   "devDependencies": {
+    "node-sass-chokidar": "^1.2.2",
+    "npm-run-all": "^4.1.2",
     "babel-jest": "~22.4.3",
     "babel-preset-env": "~1.6.1",
     "babel-preset-react": "^6.24.1",
