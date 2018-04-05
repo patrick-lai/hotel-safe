@@ -1,0 +1,25 @@
+/***
+ * Default theme
+ */
+
+$color-background: #2a3f54;
+$color-gray: #666666;
+$color-screen: #9ea18c;
+$color-success: #2a3f54;
+$color-fail: red;
+
+// Some globals
+:global {
+  #root,
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
