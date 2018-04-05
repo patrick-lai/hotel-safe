@@ -15,12 +15,8 @@
   display: flex;
   overflow: hidden;
 
-  .left,
-  .right {
+  & > * {
     flex: 1;
-  }
-
-  .left {
     padding: 2em;
   }
 }

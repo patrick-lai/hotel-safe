@@ -1,15 +1,18 @@
 import React from 'react';
 import Numpad from '../components/Numpad';
+import Screen from '../components/Screen';
 import styles from './styles.css';
 
 export default () => (
   <div className="app">
     <div className="container">
-      <div className="left">
+      <div>
         <Numpad />
       </div>
-      <div className="right">
-        <span>input</span>
+      <div>
+        <span>
+          <Screen />
+        </span>
         <span>indicator</span>
       </div>
     </div>
