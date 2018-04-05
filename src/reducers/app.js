@@ -51,9 +51,8 @@ export default (state = defaultState, action) => {
       return { ...state, ...mutation };
 
     case 'SUBMIT_PIN':
-      // Do nothing if the pin is empty
-      if (pin.length === 0) return state;
-      if (locked) return { ...state, status: 'INVALID' };
+      // Can only set pin if its 4 digits and opened
+      if (locked || pin.length !== 4) return { ...state, status: 'INVALID' };
       // Else set the pin if its opened
       toast.info('New PIN set');
       return { ...state, _savedPin: state.pin, pin: [], locked: true };
