@@ -5,5 +5,5 @@
 import app from './reducers/app';
 
 export default {
-  reducers: [app]
+  reducers: { app }
 };

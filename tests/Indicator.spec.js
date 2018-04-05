@@ -11,11 +11,9 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('Indicator component', () => {
   test('should have correct classes on different states', () => {
-    const none = shallow(<Indicator />);
-    const success = shallow(<Indicator status="SUCCESS" />);
-    const error = shallow(<Indicator status="ERROR" />);
-    expect(none.html()).toMatchSnapshot();
-    expect(success.html()).toMatchSnapshot();
-    expect(error.html()).toMatchSnapshot();
+    const locked = shallow(<Indicator locked={true} />);
+    const open = shallow(<Indicator locked={false} />);
+    expect(locked.html()).toMatchSnapshot();
+    expect(open.html()).toMatchSnapshot();
   });
 });

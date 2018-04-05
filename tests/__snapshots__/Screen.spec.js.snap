@@ -4,6 +4,4 @@ exports[`Screen component should be able to render a string 1`] = `"<div data-te
 
 exports[`Screen component should have correct classes on different states 1`] = `"<div data-test-id=\\"screen\\" class=\\"screen\\">none</div>"`;
 
-exports[`Screen component should have correct classes on different states 2`] = `"<div data-test-id=\\"screen\\" class=\\"screen -success\\">success</div>"`;
-
-exports[`Screen component should have correct classes on different states 3`] = `"<div data-test-id=\\"screen\\" class=\\"screen -error\\">error</div>"`;
+exports[`Screen component should have correct classes on different states 2`] = `"<div data-test-id=\\"screen\\" class=\\"screen -error\\">error</div>"`;

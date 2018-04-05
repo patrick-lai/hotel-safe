@@ -10,11 +10,8 @@ const Screen = ({ display, status }) => {
   // Build the full classname
   const classNames = ['screen'];
   switch (status) {
-    case 'ERROR':
+    case 'INVALID':
       classNames.push('-error');
-      break;
-    case 'SUCCESS':
-      classNames.push('-success');
       break;
     default:
     // Do nothing

@@ -17,10 +17,8 @@ describe('Screen component', () => {
 
   test('should have correct classes on different states', () => {
     const none = shallow(<Screen display="none" />);
-    const success = shallow(<Screen display="success" status="SUCCESS" />);
-    const error = shallow(<Screen display="error" status="ERROR" />);
+    const error = shallow(<Screen display="error" status={'INVALID'} />);
     expect(none.html()).toMatchSnapshot();
-    expect(success.html()).toMatchSnapshot();
     expect(error.html()).toMatchSnapshot();
   });
 });
