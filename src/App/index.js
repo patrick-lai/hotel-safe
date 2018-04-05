@@ -4,6 +4,14 @@ import styles from './styles.css';
 
 export default () => (
   <div className="app">
-    <Numpad />
+    <div className="container">
+      <div className="left">
+        <Numpad />
+      </div>
+      <div className="right">
+        <span>input</span>
+        <span>indicator</span>
+      </div>
+    </div>
   </div>
 );
