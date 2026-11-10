@@ -65,8 +65,18 @@ describe('Lock safe behaviour', () => {
     expect(result_0.status).toBe('INVALID');
   });
 
-  // Not sure what this one means
-  xtest('If safe is open and PIN is a valid 4 digit value, save value to state and use that to update lock indicator light', () => {});
+  test('If safe is open and PIN is a valid 4 digit value, save value to state and use that to update lock indicator light', () => {
+    const action = { type: 'SUBMIT_PIN' };
+
+    const result = app(
+      { ...defaultState, locked: false, pin: [1, 2, 3, 4] },
+      action
+    );
+    expect(result._savedPin).toEqual([1, 2, 3, 4]);
+    expect(result.pin).toEqual([]);
+    expect(result.locked).toBe(true);
+    expect(result.status).toBe(null);
+  });
 
   test('If safe is locked and PIN matches stored value, unlock and update indicator light and clear state value/display', () => {
     const action = { type: 'ENTER_DIGIT', digit: 8 };
@@ -82,6 +92,26 @@ describe('Lock safe behaviour', () => {
     );
     expect(result_0.locked).toBe(false);
     expect(result_0.pin).toEqual([]);
+    expect(result_0._savedPin).toEqual([]);
+    expect(result_0.status).toBe(null);
+  });
+
+  test('If safe is locked and PIN does not match, keep the indicator locked and show INVALID', () => {
+    const action = { type: 'ENTER_DIGIT', digit: 1 };
+
+    const result = app(
+      {
+        ...defaultState,
+        locked: true,
+        _savedPin: [8, 8, 8, 8],
+        pin: [8, 8, 8]
+      },
+      action
+    );
+    expect(result.locked).toBe(true);
+    expect(result.pin).toEqual([]);
+    expect(result._savedPin).toEqual([8, 8, 8, 8]);
+    expect(result.status).toBe('INVALID');
   });
 
   test('CLR should clear the current display', () => {

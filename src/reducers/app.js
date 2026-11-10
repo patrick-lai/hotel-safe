@@ -2,10 +2,6 @@
  * Holds information about the app (lock).
  */
 
-// NOTE - Do not really understand part of the spec:
-// If safe is open and PIN is a valid 4 digit value, save value to state and use that to update lock indicator light
-// Does this mean it will just keep it in display and leave it open or lock it?
-
 import _ from 'lodash';
 import { toast } from 'react-toastify';
 
@@ -37,15 +33,20 @@ export default (state = defaultState, action) => {
       // Update the pin and also reset status
       const mutation = { pin: newPin, status: null, locked };
 
-      // If safe is locked and PIN matches stored value, unlock and update indicator light and clear state value/display
       if (locked && newPin.length === 4) {
         const matches = _.isEqual(_savedPin, newPin);
-        mutation.locked = !matches;
         mutation.pin = [];
 
-        mutation.locked
-          ? toast.error('PIN mismatch')
-          : toast.success('PIN matched');
+        if (matches) {
+          mutation.locked = false;
+          mutation._savedPin = [];
+          mutation.status = null;
+          toast.success('PIN matched');
+        } else {
+          mutation.locked = true;
+          mutation.status = 'INVALID';
+          toast.error('PIN mismatch');
+        }
       }
 
       return { ...state, ...mutation };
